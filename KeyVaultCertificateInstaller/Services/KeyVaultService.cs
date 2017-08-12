@@ -63,9 +63,12 @@ namespace KeyVaultCertificateInstaller.Services
                     Error = res.Error?.Message
                 };
             }
-            catch (Exception e)
+            catch (KeyVaultErrorException e)
             {
-                throw;
+                return new CreateCsrResponse
+                {
+                    Error = e.Message,
+                };
             }
         }
     }

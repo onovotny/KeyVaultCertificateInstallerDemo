@@ -1,0 +1,21 @@
+﻿@model CreateCsrResponse
+@{
+    ViewData["Title"] = "Home Page";
+    
+}
+
+<div class="row">
+   
+    <h2>Key Vault Info</h2>
+    <ul>
+        <li>Request Id: @Model.RequestId</li>
+        <li>Cert Id: @Model.CertId</li>
+        <li>Status: @Model.Status</li>
+        <li>Status Details: @Model.StatusDetails</li>
+        <li>Error: @Model.Error</li>
+        <li>CSR: @Model.Csr</li>
+        
+    </ul>
+    
+   
+</div>

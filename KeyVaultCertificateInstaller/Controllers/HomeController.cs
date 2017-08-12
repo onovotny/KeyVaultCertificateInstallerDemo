@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using KeyVaultCertificateInstaller.Models;
 using Microsoft.AspNetCore.Authentication;
+using KeyVaultCertificateInstaller.Services;
 
 namespace KeyVaultCertificateInstaller.Controllers
 {
@@ -19,19 +20,16 @@ namespace KeyVaultCertificateInstaller.Controllers
             return View();
         }
 
-        public IActionResult About()
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public async Task<IActionResult> CreateCSR(CreateCsrRequest request, [FromServices] KeyVaultService service)
         {
-            ViewData["Message"] = "Your application description page.";
+            var res = await service.CreateCSR(request.VaultName, request.CertificateName);
 
-            return View();
+
+            return View(res);
         }
 
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
 
         [AllowAnonymous]
         public IActionResult Error()

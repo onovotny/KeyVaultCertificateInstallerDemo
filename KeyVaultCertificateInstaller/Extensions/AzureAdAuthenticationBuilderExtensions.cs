@@ -77,13 +77,6 @@ namespace Microsoft.AspNetCore.Authentication
                     //{
                     //    return myUserValidationLogic(context.Ticket.Principal);
                     //}
-                    //OnAuthorizationCodeReceived = async context =>
-                    //{
-                    //    var authContext = new AuthenticationContext(_azureOptions.Instance);
-                    //    var res = await authContext.AcquireTokenByAuthorizationCodeAsync(context.ProtocolMessage.Code, context.Request.GetUri(), new ClientCredential(_azureOptions.ClientId, _azureOptions.ClientSecret), "https://vault.azure.net");
-
-                    //    context.HandleCodeRedemption(res.AccessToken, res.IdToken);
-                    //}
                 };
             }
 
